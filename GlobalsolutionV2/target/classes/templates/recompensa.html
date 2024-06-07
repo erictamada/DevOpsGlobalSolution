@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recompensas</title>
+    <link rel="stylesheet"th:href="@{/css/recompensa.css}">
+    <script>
+        function regatarRecompensa(form, pontosNecessarios, pontosAcumulados) {
+            if (pontosNecessarios < pontosAcumulados) {
+                form.submit();
+                alert("Pontos Suficientes");
+            } else {
+                alert("Pontos insuficientes");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="top-bar">
+    <div class="user-info">
+        <span th:text="${usuario.nome}">Nome do Usuário</span>
+        <span th:text="${usuario.pontosAcumulados}">Pontos Acumulados</span>
+    </div>
+    <div class="logout">
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</div>
+
+<div class="rewards-container">
+    <div class="reward" th:each="recompensa : ${recompensas}">
+        <div class="reward-info">
+            <span th:text="${recompensa.descricao}">Descrição da Recompensa</span>
+            <span th:text="${recompensa.pontosNecessarios}">Pontos Necessários</span>
+        </div>
+        <form th:action="@{/cleanWave/recompensa/resgatar(id=${usuario.usuarioId},pontos=${recompensa.pontosNecessarios})}" method="post">
+            <input type="hidden" id="pontosRecompensa" th:value="${recompensa.pontosNecessarios}" />
+            <button type="button" th:onclick="'regatarRecompensa(this.form, '+${recompensa.pontosNecessarios}+', '+${usuario.pontosAcumulados}+')'">Resgatar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

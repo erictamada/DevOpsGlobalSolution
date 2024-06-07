@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body>
+<div class="top-bar">
+    <div class="user-info">
+        <a th:text="${usuario.nome}">Nome do Usuário</a>
+        Pontos: <a th:text="${usuario.pontosAcumulados}">Pontos Acumulados</a>
+    </div>
+    <div class="logout">
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+</div>
+
+<div class="buttons">
+    <a class="button" th:href="@{/cleanWave/recompensa}">Resgatar Recompensas</a>
+    <a class="button" th:href="@{/cleanWave/pontos}">Resgatar Pontos</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.jpg'); /* Caminho relativo à pasta static */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+    height: 100vh;
+}
+
+.top-bar {
+    background-color: rgba(0, 123, 255, 0.8); /* Fundo azul com transparência */
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.user-info a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.logout a {
+    background-color: #0056b3;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.logout a:hover {
+    background-color: #003d80;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 60px; /* Adjust for the height of the top bar */
+}
+
+.button {
+    background-color: #28a745;
+    color: white;
+    padding: 20px 40px;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 250px; /* Set a fixed width for the buttons */
+    text-align: center; /* Center the text */
+}
+
+.button:hover {
+    background-color: #218838;
+}
